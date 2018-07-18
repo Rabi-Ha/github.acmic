@@ -1,0 +1,29 @@
+#include <stdio.h>
+#include <string.h>
+
+int pow(int n, int t) {
+    int s=1;
+    for(int j=1;j<t;j++) s=s*n;
+    return s;
+}
+
+int main() {
+    char str[6]={0};
+    int len = 0,i,ans=0;
+
+    scanf("%s",str);
+
+    len=strlen(str);
+    for(i=len-1;i>=0;i--) {
+        if(str[i]<='F'&&str[i]>='A') {
+            ans=ans+((int)str[i]-55)*pow(16,len-i);
+        }
+        else {
+            ans=ans+((int)str[i]-48)*pow(16,len-i);
+        }
+    }
+
+    printf("%d",ans);
+
+    return 0;
+}

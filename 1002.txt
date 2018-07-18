@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <math.h>
+
+int abs(int n1,int n2) {
+    if(n1>n2) return n1-n2;
+    else return n2-n1;
+}
+
+int pow(int n) {
+    return n*n;
+}
+
+int main() {
+    int T,x1,y1,r1,x2,y2,r2;
+    double dist;
+    scanf("%d",&T);
+    for(int i=0;i<T;i++) {
+        scanf("%d %d %d %d %d %d",&x1,&y1,&r1,&x2,&y2,&r2);
+
+        dist=sqrt(pow(abs(x1,x2))+pow(abs(y1,y2)));
+
+        if(x1==x2&&y1==y2&&r1==r2) printf("-1\n");
+        else if(dist==r1+r2||r1+dist==r2||r2+dist==r1) printf("1\n");
+        else if(r1+r2<dist||r1+dist<r2||r2+dist<r1) printf("0\n");
+        else printf("2\n");
+    }
+    return 0;
+}

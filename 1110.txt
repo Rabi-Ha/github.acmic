@@ -1,0 +1,16 @@
+#include <iostream>
+#include <stdio.h>
+
+using  namespace std;
+
+int main() {
+    int frs,n,cnt=0;
+    cin>>n;
+    frs=n;
+    while(1){
+        n=(n%10)*10+((n%10)+(n/10))%10;
+        cnt++;
+        if(frs==n)break;
+    }
+    cout<<cnt;
+}
