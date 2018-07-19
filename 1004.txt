@@ -1,0 +1,35 @@
+#include <stdio.h>
+#include <math.h>
+
+int abs(int n1,int n2) {
+    if(n1>n2) return n1-n2;
+    else return n2-n1;
+}
+
+int main() {
+    int T,x1,y1,x2,y2,n;
+
+    scanf("%d",&T);
+
+    for(int i=0;i<T;i++) {
+        scanf("%d %d %d %d %d",&x1,&y1,&x2,&y2,&n);
+
+        int cnt=0;
+
+        for(int j=0;j<n;j++) {
+            int cx,cy,r,dist1,dist2;
+            scanf("%d %d %d",&cx,&cy,&r);
+
+            dist1=pow(abs(cx,x1),2)+pow(abs(cy,y1),2);
+            dist2=pow(abs(cx,x2),2)+pow(abs(cy,y2),2);
+            r*=r;
+
+            if((dist1<r&&dist2>=r)||(dist2<r&&dist1>=r)) cnt++;
+        }
+
+        printf("%d\n",cnt);
+    }
+
+
+    return 0;
+}
